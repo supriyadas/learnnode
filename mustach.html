@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<script src="mustache.min.js"></script>
+</head>
+<body>
+JSON
+<textarea id="jsondata" rows="10" cols="50"></textarea>
+<br/>
+Mustache
+<textarea id="mustdata" rows="10" cols="50"></textarea>
+<div id="display">
+</div>
+<button id="btn1">Click</button>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        var data=JSON.parse($("#jsondata").val());
+        var temp=$("#mustdata").val();	
+
+
+        var output=Mustache.to_html(temp,data);
+        $("#display").html(output);
+
+    });
+});
+</script>
+</body>
+</html>
+
